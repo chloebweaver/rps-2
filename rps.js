@@ -18,6 +18,14 @@ function playRound(playerSelection, computerSelection) {
         return "Paper beats rock! You lose";
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
         return "Rock beats scissors! You win!"
+    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
+        return "Paper beats rock! You win!";
+    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
+        return "Scissors beats paper! You lose";
+    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock") {
+        return "Rock beats scissors! You lose";
+    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
+        return "Scissors beats paper! You win!";
     }
 }
 
