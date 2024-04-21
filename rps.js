@@ -9,4 +9,17 @@ function getComputerChoice() {
     };
 }
 
-// Play a single round of rps
+// Play a single round of rps; currently works once per page load
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection.toLowerCase() == computerSelection) {
+        return "You tied! Try again";
+    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
+        return "Paper beats rock! You lose";
+    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
+        return "Rock beats scissors! You win!"
+    }
+}
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
