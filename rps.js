@@ -1,3 +1,4 @@
+// Randomly choose between rock, paper, or scissors
 function getComputerChoice() {
     let number = Math.floor(Math.random() *3);
     if (number == 0) {
@@ -23,3 +24,5 @@ function playRound(playerSelection, computerSelection) {
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
+
+// Play one five-round game
