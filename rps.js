@@ -13,24 +13,30 @@ function getComputerChoice() {
 // Play a single round of rps; currently works once per page load
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == computerSelection) {
-        return "You tied! Try again";
+        alert("You tied! Try again");
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
-        return "Paper beats rock! You lose";
+        alert("Paper beats rock! You lose");
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
-        return "Rock beats scissors! You win!"
+        alert("Rock beats scissors! You win!");
     } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
-        return "Paper beats rock! You win!";
+        alert("Paper beats rock! You win!");
     } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
-        return "Scissors beats paper! You lose";
+        alert("Scissors beats paper! You lose");
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock") {
-        return "Rock beats scissors! You lose";
+        alert("Rock beats scissors! You lose");
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
-        return "Scissors beats paper! You win!";
+        alert("Scissors beats paper! You win!");
     }
 }
 
-const playerSelection = "rock";
+// const playerSelection = "rock";
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
 
 // Play one five-round game
+function playGame() {
+    let playerSelection = prompt("Rock, paper, or scissors?");
+    playRound(playerSelection, computerSelection);
+}
+
+playGame();
