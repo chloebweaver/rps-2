@@ -39,3 +39,17 @@ function playRound(playerSelection, computerSelection) {
 }
 
 playGame(); */
+
+/* TO DOs:
+1. Create three buttons, one for each selection.
+2. Add an event listener to the buttons that call playRound()
+    with the correct playerSelection every time a button is
+    clicked.
+3. Add a <div> for displaying results and change all of your
+    console.logs for this step.
+4. Display the running score, and announce the winner of a
+    game once one player reaches five points.
+Note: You will likely have to refactor your original code to
+make it work for this. That's okay! Reworking old code is an
+important part of a programmer's life. */
+
