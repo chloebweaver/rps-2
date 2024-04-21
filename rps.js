@@ -29,14 +29,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
-
 // Play one five-round game
 function playGame() {
-    let playerSelection = prompt("Rock, paper, or scissors?");
-    playRound(playerSelection, computerSelection);
+    for (let counter = 0; counter < 5; counter++) {
+        let playerSelection = prompt("Rock, paper, or scissors?");
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    };
 }
 
 playGame();
