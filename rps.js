@@ -7,9 +7,9 @@ function resetGame() {
 
 function startGame() {
     // Play the game until someone wins five times
-    let imgs = document.querySelectorAll('img)');
+    let imgs = document.querySelectorAll('img');
     imgs.forEach((img) =>
-    img.addEventListener(('click'), () => {
+    img.addEventListener('click', () => {
         if(img.id) {
             playRound(img.id);
         }
@@ -28,6 +28,26 @@ function playRound(playerChoice) {
     winners.push(winner);
     tallyWins();
     displayRound(playerChoice, computerChoice, winner);
+    wins = checkWins();
+    if (wins == 5) {
+        // display end results
+        // change button to visible
+        // change the text to display winner
+        displayEnd();
+    }
+}
+
+function displayEnd() {
+    let playerWins = winners.filter((item) => item == "Player").length;
+
+    if (playerWins == 5) {
+        document.querySelector('.winner').textContent = 
+        "You won 5 games; congrats!";
+    } else {
+        document.querySelector('.winner').textContent = 
+        "Sorry, the computer won 5 times";
+    }
+    document.querySelector('.reset').style.display = "flex";
 }
 
 function displayRound(playerChoice, computerChoice, winner) {
@@ -39,7 +59,7 @@ function displayRound(playerChoice, computerChoice, winner) {
         '.computerChoice').textContent = `You Chose: ${
         computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
     }`;
-    document.querySelector('.ties').textContent = `Ties: ${ties}`;
+    document.querySelector('.winner').textContent = `Round Winner: ${winner}`;
 }
 
 function tallyWins() {
@@ -82,7 +102,7 @@ function setWins() {
     const ties = winners.filter((item) => item == "tie").length;
 }
 
-startGame()
+startGame();
 
 // Randomly choose between rock, paper, or scissors
 /* function getComputerChoice() {
