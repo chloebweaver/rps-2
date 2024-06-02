@@ -21,16 +21,34 @@ function playRound(playerChoice) {
     if (wins >= 5) {
         return
     };
+
     const computerChoice = computerSelect();
+
     const winner = checkWinner(playerChoice, computerChoice);
     winners.push(winner);
     tallyWins();
+    displayRound(playerChoice, computerChoice, winner);
+}
+
+function displayRound(playerChoice, computerChoice, winner) {
+    document.querySelector(
+        '.playerChoice').textContent = `You Chose: ${
+        playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)
+    }`;
+    document.querySelector(
+        '.computerChoice').textContent = `You Chose: ${
+        computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+    }`;
+    document.querySelector('.ties').textContent = `Ties: ${ties}`;
 }
 
 function tallyWins() {
     const pWinCount = winners.filter((item) => item == "Player").length;
     const cWinCount = winners.filter((item) => item == "Computer").length;
     const ties = winners.filter((item) => item == "tie").length;
+    document.querySelector('.playerScore').textContent = `Score: ${pWinCount}`
+    document.querySelector('.computerScore').textContent = `Score: ${cWinCount}`
+    document.querySelector('.ties').textContent = `Score: ${ties}`
 }
 
 function computerSelect() {
