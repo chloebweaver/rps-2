@@ -1,5 +1,49 @@
+let winners = [];
+const choices = ["rock", "paper", "scissors"];
+
+function resetGame() {
+    // Reset the game!
+}
+
+function startGame() {
+    // Play the game until someone wins five times
+    playRound();
+    setWins();
+}
+
+function playRound(round) {
+    const computerChoice = computerSelect();
+    const winner = checkWinner(playerChoice, computerChoice);
+    winners.push(winner);
+}
+
+function computerSelect() {
+// Update DOM with computer selection
+    return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function checkWinner(choice1, choice2) {
+    if (
+        (choice1 == "rock" && choice2 == "scissors") ||
+        (choice1 == "scissors" && choice2 == "paper") ||
+        (choice1 == "paper" && choice2 == "rock")
+    ) {
+        return "Player";
+    } else if (choice1 == choice2) {
+        return "Tie";
+    } else {
+        return "Computer";
+    }
+}
+
+function setWins() {
+    const pWinCount = winners.filter((item) => item == "Player").length;
+    const cWinCount = winners.filter((item) => item == "Computer").length;
+    const ties = winners.filter((item) => item == "tie").length;
+}
+
 // Randomly choose between rock, paper, or scissors
-function getComputerChoice() {
+/* function getComputerChoice() {
     let number = Math.floor(Math.random() *3);
     if (number == 0) {
         return "rock";
@@ -8,10 +52,10 @@ function getComputerChoice() {
     } else {
         return "scissors";
     };
-}
+} */
 
 // Play a single round of rps; currently works once per page load
-function playRound(playerSelection, computerSelection) {
+/* function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == computerSelection) {
         alert("You tied! Try again");
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
@@ -27,7 +71,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
         alert("Scissors beats paper! You win!");
     }
-}
+} */
 
 // Play one five-round game
 /* function playGame() {
