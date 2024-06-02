@@ -7,19 +7,41 @@ function resetGame() {
 
 function startGame() {
     // Play the game until someone wins five times
-    playRound();
-    setWins();
+    let imgs = document.querySelectorAll('img)');
+    imgs.forEach((img) =>
+    img.addEventListener(('click'), () => {
+        if(img.id) {
+            playRound(img.id);
+        }
+    }))
 }
 
-function playRound(round) {
+function playRound(playerChoice) {
+    let wins = checkWins();
+    if (wins >= 5) {
+        return
+    };
     const computerChoice = computerSelect();
     const winner = checkWinner(playerChoice, computerChoice);
     winners.push(winner);
+    tallyWins();
+}
+
+function tallyWins() {
+    const pWinCount = winners.filter((item) => item == "Player").length;
+    const cWinCount = winners.filter((item) => item == "Computer").length;
+    const ties = winners.filter((item) => item == "tie").length;
 }
 
 function computerSelect() {
 // Update DOM with computer selection
     return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function checkWins() {
+    const pWinCount = winners.filter((item) => item == "Player").length;
+    const cWinCount = winners.filter((item) => item == "Computer").length;
+    return Math.max(pWinCount, cWinCount);
 }
 
 function checkWinner(choice1, choice2) {
@@ -41,6 +63,8 @@ function setWins() {
     const cWinCount = winners.filter((item) => item == "Computer").length;
     const ties = winners.filter((item) => item == "tie").length;
 }
+
+startGame()
 
 // Randomly choose between rock, paper, or scissors
 /* function getComputerChoice() {
